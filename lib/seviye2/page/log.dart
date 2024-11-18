@@ -46,7 +46,7 @@ class _LogScreenState extends State<LogScreen> {
                 onPressed: () {
                   if (nameController.text.isNotEmpty &&
                       passwordController.text.isEmpty) {
-                    var userModel = UserModel(
+                    var userModel = UsersModel(
                         name: nameController.text,
                         password: passwordController.text);
                     context.read<UserCubit>().userKaydet(userModel);
