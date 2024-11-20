@@ -2,7 +2,7 @@ import 'package:bloc_cubit_example/seviye2/cubit/switch_cubit.dart';
 import 'package:bloc_cubit_example/seviye2/cubit/user_cubit.dart';
 import 'package:bloc_cubit_example/seviye2/model/user_model.dart';
 import 'package:bloc_cubit_example/seviye2/page/user_home.dart';
-import 'package:bloc_cubit_example/seviye2/widget/textfield.dart';
+import 'package:bloc_cubit_example/constant/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

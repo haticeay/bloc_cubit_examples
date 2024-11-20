@@ -24,6 +24,18 @@ if (db.isNotEmpty) {
 }
 }
 
+ Future <void> updateUser ( String userID ,String userName, String userNumber) async{
+
+    String userID = const Uuid().v1();
+
+    UserModel newUser= UserModel(id: userID, userName: userName, userNumber: userNumber);
+    await db.put(userID, newUser);
+  }
+
+  Future <void> deleteUser(UserModel userModel) async {
+    await db.delete(userModel.id);
+  }
+
 
 
 }

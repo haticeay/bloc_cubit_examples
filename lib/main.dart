@@ -4,6 +4,7 @@ import 'package:bloc_cubit_example/seviye2/cubit/switch_cubit.dart';
 import 'package:bloc_cubit_example/seviye2/cubit/user_cubit.dart';
 import 'package:bloc_cubit_example/seviye3/cubit/get_user.dart';
 import 'package:bloc_cubit_example/seviye3/model/user_model.dart';
+import 'package:bloc_cubit_example/seviye3/page/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
@@ -43,12 +44,13 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const GirisSayfasi(),
+        home: const HomeScreen(),
       ),
     );
   }

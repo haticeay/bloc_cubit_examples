@@ -1,6 +1,7 @@
 import 'package:bloc_cubit_example/seviye3/cubit/get_user.dart';
 import 'package:bloc_cubit_example/seviye3/model/user_model.dart';
-import 'package:bloc_cubit_example/seviye3/page/add_user_page.dart';
+import 'package:bloc_cubit_example/add_user/add_user_page.dart';
+import 'package:bloc_cubit_example/seviye3/page/user_add_update.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,27 +23,35 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Cubit Örnek"),
+        title: const Text("Cubit Örnek"),
       ),
-      body: Center(
-        child: BlocBuilder<GetUserCubit, List<UserModel>>(
-          builder: (context, state) {
-            if (state.isNotEmpty) {
-              return ListView.builder(
-                  itemCount: state.length,
-                  itemBuilder: (context, index) {
-                    UserModel item = state[index];
-                    return Card(
-                      child: ListTile(
-                        title: Text(item.userName),
-                        subtitle: Text(item.userNumber),
-                      ),
-                    );
-                  });
-            } else {
-              return const Text("Görüntülenecek kişi yok");
-            }
-          },
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          
+          child: BlocBuilder<GetUserCubit, List<UserModel>>(
+            builder: (context, state) {
+              if (state.isNotEmpty) {
+                return ListView.builder(
+                    itemCount: state.length,
+                    itemBuilder: (context, index) {
+                      UserModel item = state[index];
+                      return Card(
+                        child: ListTile(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> UserAddUpdate(userModel: item)));
+                          },
+                          title: Text(item.userName),
+                          subtitle: Text(item.userNumber),
+                          trailing: const Icon(Icons.arrow_forward_ios, color: Colors.grey,),
+                        ),
+                      );
+                    });
+              } else {
+                return const Text("Görüntülenecek kişi yok");
+              }
+            },
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(

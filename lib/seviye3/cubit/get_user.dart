@@ -15,4 +15,15 @@ class GetUserCubit extends Cubit<List<UserModel>> {
    saveUser(String userName, String userNumber)  async{
     await repo.saveUser(userName, userNumber);
   }
+
+  updateUser(String userID, userName, String userNumber) async{
+    await repo.updateUser(userID, userName, userNumber);
+    getAllUsers();
+  }
+
+  deleteUser(UserModel userModel)async{
+    await repo.deleteUser(userModel);
+    getAllUsers();
+
+  }
 }
